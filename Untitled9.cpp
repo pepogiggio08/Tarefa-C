@@ -1,45 +1,22 @@
 #include <stdio.h>
-int main()
-{
-	int matriz[5][3], i, j, alunoMaior = 0, qtd = 0;
-	float somarFila = 0, somarColuna = 0, maior = 0;
-	
-	for (i = 0; i < 5; i++){
-		for (j = 0; j < 3; j++){
-			printf("Digite o valor da nota [%d] do aluno [%d]: ", j+1, i+1);
-			scanf("%d", &matriz[i][j]);
-		}
+float media(float n1, float n2, float n3){
+		return (n1+n2+n3)/3;
+	};
+int main(){
+	float resultado = 0.0;
+	float n1 = 0.0, n2 = 0.0, n3 = 0.0;
+	printf("Digite a nota1: ");
+	scanf("%f", &n1);
+	printf("Digite a nota2: ");
+	scanf("%f", &n2);
+	printf("Digite o nota3: ");
+	scanf("%f", &n3);
+	resultado = media(n1, n2, n3);
+	printf("\nA media das 3 notas n e: %.2f", resultado);
+	if(resultado >= 6.0){
+		printf("\nCom essa media, o aluno esta aprovado!");
+	}else{
+		printf("\nCom essa media, o aluno esta reprovado!");
 	}
-	
-	printf("\n");
-	printf("\n===Essa-e-a-matriz===\n\n");
-	printf("\t\tNota1 Nota2 Nota3\n\n");
-	
-	for (i = 0; i < 5; i++){
-		printf("Aluno %d\t\t", i+1);
-		for (j = 0; j < 3; j++){
-			printf("%d\t", matriz[i][j]);	
-		}
-		printf("\n");
-	}
-	printf("\n");
-	
-	
-	for (i = 0; i < 5; i++){
-		somarFila = 0; 
-		for (j = 0; j < 3; j++){
-			somarFila += matriz[i][j];
-		}
-		if (somarFila/3.0 > maior){
-			maior = somarFila/3.0;
-			alunoMaior = i+1;
-		}
-		if (somarFila/3.0 > 6.0){
-			qtd++;
-		}
-		printf("O valor da media do aluno %d e: %.2f\n", i + 1, somarFila/3.0);
-	}
-	printf("\nO n de alunos que teve uma media acima de 6 foi: %d", qtd);
-	printf("\nO valor da maior media e de: %.2f\nE pertence ao aluno: %d",maior, alunoMaior);
-
+	return 0;
 }
